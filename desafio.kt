@@ -12,8 +12,8 @@ data class Formacao(val nome: String, val nivel: Nivel) {
 
     val conteudos = mutableListOf<ConteudoEducacional>()
     
-    fun matricular(usuario: Usuario) {
-        inscritos.add(usuario)
+    fun matricular(vararg usuario: Usuario) {
+        inscritos.addAll(usuario)
     }
 
      fun terminouCurso(usuario: Usuario){
@@ -35,7 +35,6 @@ fun main() {
     
     formacaoKotlin.adicionarConteudo(conteudo1)
     
-    formacaoKotlin.matricular(usuario1)
-    formacaoKotlin.matricular(usuario2)
+    formacaoKotlin.matricular(usuario1, usuario2)
     formacaoKotlin.terminouCurso(usuario2)
 }
